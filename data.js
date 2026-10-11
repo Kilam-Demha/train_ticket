@@ -15,8 +15,7 @@ export const trips = [
         departureTime: "08:00",
         arrivalTime: "10:30",
         price: 90,
-        availableSeats: 50
-    },
+        availableSeats: 1  },
     {
         id: 3,
         departure: "Safi",

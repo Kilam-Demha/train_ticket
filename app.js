@@ -1,9 +1,8 @@
 //  import paths
-import promptSync from "prompt-sync";
-import { MenuPrincipale , AficherLesTrajects } from "./functions.js";
+import { MenuPrincipale , AficherLesTrajects , promtInput ,AcheterUnTickit } from "./functions.js";
 
-// input user
-const prompt = promptSync();
+
+
 
 let isOut = true;
 let isExit;
@@ -15,8 +14,11 @@ MenuPrincipale();
 
 
     
-   let  input = prompt("veuillez choisir : ");
+   // let  input = prompt("veuillez choisir : ");
+    let input = promtInput("veuillez choisr : ");
 
+   
+   
 
     switch(input){
 
@@ -25,6 +27,7 @@ MenuPrincipale();
         break;
         
         case '2' : 
+        AcheterUnTickit();
         break;
         
         case '3' : 
@@ -60,7 +63,7 @@ MenuPrincipale();
      
      
 
-     isExit = prompt("exit (y/n) : ");
+     isExit = promtInput("exit (y/n) : ");
      if(isExit === 'y' || isExit === 'Y'){
         isOut = false;
      }
