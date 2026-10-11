@@ -106,9 +106,9 @@ const AcheterUnTickit = ()=>{
         const newTicket = {
             id : id++,
             passengerName : name ,
-            tripId,
+            tripId : +tripId,
             seatNumber : place++,
-             price : findTrip.price + "DH",  
+             price : findTrip.price ,  
         }
 
     
@@ -160,12 +160,41 @@ const AficherLesTicket = ()=>{
 const AnullerUnTicket = ()=>{
     if(tickets.length === 0)
     {
- console.log(colors.red + "Aucun Ticket Enregistré !!! " + colors.reset);
-
-return false;
+       console.log(colors.red + "Aucun Ticket Enregistré !!! " + colors.reset);
+       return false;
     }
 
+       const inputId = promtInput("Veuillez Entrer l'Id De Voutre ticket :");
 
+
+       const  findId = tickets.findIndex((ticket)=>{
+
+        return ticket.id === +inputId;
+       })
+
+
+
+       if(findId === -1){
+         console.log(colors.red + "Trajet introuvable !!!" + colors.reset);
+            return false;
+       }
+
+        trips[tickets[findId].tripId -1].availableSeats++;
+
+
+          
+     
+
+       tickets.splice(findId , 1); 
+
+       console.log( colors.green +"Ticket a eté anuller en succéss " + colors.reset);
+    
+
+
+
+      
+
+    
       
     }
 
@@ -176,5 +205,6 @@ promtInput,
 MenuPrincipale,
 AficherLesTrajects,
 AcheterUnTickit,
-AficherLesTicket
+AficherLesTicket,
+AnullerUnTicket
 }
