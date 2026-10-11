@@ -1,6 +1,6 @@
 //  import paths
 import promptSync from "prompt-sync";
-import { exit, MenuPrincipale } from "./functions.js";
+import { MenuPrincipale , AficherLesTrajects } from "./functions.js";
 
 // input user
 const prompt = promptSync();
@@ -21,11 +21,12 @@ MenuPrincipale();
     switch(input){
 
         case '1' : 
+        AficherLesTrajects();
         break;
-
+        
         case '2' : 
         break;
-
+        
         case '3' : 
         break;
 
@@ -56,7 +57,6 @@ MenuPrincipale();
 
 
    
-     console.log(  elements.includes(input));
      
      
 
