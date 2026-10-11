@@ -1,5 +1,5 @@
 //  import paths
-import { MenuPrincipale , AficherLesTrajects , promtInput ,AcheterUnTickit } from "./functions.js";
+import { MenuPrincipale , AficherLesTrajects , promtInput ,AcheterUnTickit , AficherLesTicket } from "./functions.js";
 
 
 
@@ -31,6 +31,7 @@ MenuPrincipale();
         break;
         
         case '3' : 
+        AficherLesTicket();
         break;
 
         case '4' : 

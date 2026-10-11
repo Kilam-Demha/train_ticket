@@ -18,7 +18,7 @@ const colors = {
   green  : "\x1b[32m" ,
   yellow : "\x1b[33m" ,
   cyan   : "\x1b[36m" ,
-  gray   : "\x1b[31m" ,
+  violet   : "\x1b[35m" ,
   bold   : "\x1b[1m" ,
   reset  : "\x1b[0m" ,
 
@@ -105,7 +105,7 @@ const AcheterUnTickit = ()=>{
 
         const newTicket = {
             id : id++,
-            passagerName : name ,
+            passengerName : name ,
             tripId,
             seatNumber : place++,
              price : findTrip.price + "DH",  
@@ -114,26 +114,67 @@ const AcheterUnTickit = ()=>{
     
     
         tickets.push(newTicket);
-
-
-
-        
-        
+    
         
         findTrip.availableSeats--;
-        
-        
-        
-                
-                
-               
+           
 
 }
+
+
+
+const AficherLesTicket = ()=>{
+
+    if(tickets.length === 0){
+        console.log(colors.red + "Aucun Ticket Enregistré !!! " + colors.reset);
+        return false;
+    }
+
+
+
+    
+    console.log(colors.bold + colors.yellow + "\t\tTouts Les Tickets\n" + colors.reset);
+    
+    tickets.forEach(ticket =>{
+        
+        const {id , passengerName , tripId , seatNumber , price} = ticket;
+        console.log(colors.yellow + "===================================" + colors.reset);
+
+        console.log(`Id              : ${id}`);
+        console.log(`Nom De Passager : ${passengerName}`);
+        console.log(`Id De Traget    : ${tripId}`);
+        console.log(`Nomber De Place : ${seatNumber}`);
+        console.log(`Prix            : ${price}DH`);
+        
+        console.log(colors.yellow + "===================================" + colors.reset);
+        
+        
+    })
+
+}
+
+
+
+
+
+const AnullerUnTicket = ()=>{
+    if(tickets.length === 0)
+    {
+ console.log(colors.red + "Aucun Ticket Enregistré !!! " + colors.reset);
+
+return false;
+    }
+
+
+      
+    }
+
 
 
 export {
 promtInput,
 MenuPrincipale,
 AficherLesTrajects,
-AcheterUnTickit
+AcheterUnTickit,
+AficherLesTicket
 }
