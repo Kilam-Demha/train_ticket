@@ -1,5 +1,16 @@
 import {trips} from "./data.js" ;
+import promptSync from "prompt-sync";
 // show all traject
+
+const tickets = [];
+const prompt = promptSync();
+let id = 1;
+let place = 1;
+const promtInput = (message)=>{
+const input = prompt(message);
+return input;
+   
+}
 
 const colors = {
 
@@ -44,7 +55,7 @@ const AficherLesTrajects = ()=>{
          
              
 
-     console.log(`${id.toString().padEnd( 10," ")}${departure.padEnd(18, " ")}${destination.padEnd( 18, " ")}${departureTime.padEnd(18 , " ")}${arrivalTime.padEnd(8, " ")}${price.toString().padStart(10, " ")}${availableSeats.toString().padStart(15, " ")} `);
+     console.log(`${id.toString().padEnd( 10," ")}${departure.padEnd(18, " ")}${destination.padEnd( 16, " ")}${departureTime.padEnd(18 , " ")}${arrivalTime.padEnd(8, " ")}${price.toString().padStart(10, " ")}${availableSeats.toString().padStart(15, " ")} `);
 
      
     })
@@ -59,8 +70,70 @@ const AficherLesTrajects = ()=>{
 }
 
 
-export {
-MenuPrincipale,
-AficherLesTrajects
+// acheter un ticket
 
+
+const AcheterUnTickit = ()=>{
+
+    let name = promtInput("Entrer votre nom : ");
+    let tripId = promtInput("Entrer identifient de votre trip : ");
+
+
+    
+
+    let findTrip = trips.find(trip=>{
+        return trip?.id === +tripId;
+    })
+    
+    
+    if(findTrip === undefined) 
+        {
+            console.log(colors.red + "Trajet introuvable !!!" + colors.reset);
+            return false;
+        }
+        
+        
+        
+        if(findTrip.availableSeats === 0){
+            findTrip.availableSeats = `${colors.red}${"Plien".padStart(16, " ")}${colors.reset}` ;           
+            console.log(colors.red + "Le train est complet !!!" + colors.reset);
+            return false;
+    
+    
+    
+        }
+
+        const newTicket = {
+            id : id++,
+            passagerName : name ,
+            tripId,
+            seatNumber : place++,
+             price : findTrip.price + "DH",  
+        }
+
+    
+    
+        tickets.push(newTicket);
+
+
+
+        
+        
+        
+        findTrip.availableSeats--;
+        
+        
+        
+                
+                
+               
+
+}
+
+
+export {
+promtInput,
+MenuPrincipale,
+AficherLesTrajects,
+AcheterUnTickit
 }
