@@ -1,5 +1,14 @@
 //  import paths
-import { MenuPrincipale , AficherLesTrajects , promtInput ,AcheterUnTickit , AficherLesTicket } from "./functions.js";
+import { MenuPrincipale , 
+   AficherLesTrajects , 
+   promtInput ,
+   AcheterUnTickit , 
+   AficherLesTicket ,
+   AnullerUnTicket,
+   RechercherUnTicket,
+
+
+} from "./functions.js";
 
 
 
@@ -35,9 +44,13 @@ MenuPrincipale();
         break;
 
         case '4' : 
+        AnullerUnTicket();
+
+
         break;
 
         case '5' : 
+        RechercherUnTicket();
         break;
 
         case '6' : 
