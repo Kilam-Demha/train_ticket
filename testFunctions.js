@@ -24,3 +24,7 @@ export const isOriginName = (name, orName) =>{
 
 }
 
+
+
+
+

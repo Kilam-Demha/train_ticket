@@ -6,6 +6,7 @@ import { MenuPrincipale ,
    AficherLesTicket ,
    AnullerUnTicket,
    RechercherUnTicket,
+   FiltrerLesTrajects
 
 
 } from "./functions.js";
@@ -54,6 +55,7 @@ MenuPrincipale();
         break;
 
         case '6' : 
+        FiltrerLesTrajects();
         break;
 
 
