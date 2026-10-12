@@ -4,7 +4,9 @@ import { MenuPrincipale ,
    promtInput ,
    AcheterUnTickit , 
    AficherLesTicket ,
-   AnullerUnTicket
+   AnullerUnTicket,
+   RechercherUnTicket,
+
 
 } from "./functions.js";
 
@@ -48,6 +50,7 @@ MenuPrincipale();
         break;
 
         case '5' : 
+        RechercherUnTicket();
         break;
 
         case '6' : 
