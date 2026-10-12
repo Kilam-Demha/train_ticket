@@ -1,6 +1,7 @@
 import { trips } from "./data.js";
 import promptSync from "prompt-sync";
-import { isOriginName } from "./test.js";
+import { isOriginName } from "./testFunctions.js";
+
 // show all traject
 
 const tickets = [];
@@ -57,7 +58,8 @@ const AficherLesTrajects = () => {
 
 
         console.log(`${id.toString().padEnd(10, " ")}${departure.padEnd(18, " ")}${destination.padEnd(16, " ")}${departureTime.padEnd(18, " ")}${arrivalTime.padEnd(8, " ")}${price.toString().padStart(10, " ")}${availableSeats.toString().padStart(15, " ")} `);
-
+            console.log(colors.cyan + colors.bold + "_________|______________|_________________|_________________|_______________|__________|_________________" + colors.reset)
+        
 
     })
 
@@ -253,16 +255,48 @@ for(const ticket of filterTicket){
 }
 
 
-/*
- 
-    console.log("5-Rechercher un ticket");
-console.log("6-filtrer les trajects");
-console.log("0-Quitter");
- 
-*/
+
+const FiltrerLesTrajects = ()=>{
+
+    for(let i = 0 ; i < trips.length -1 ; i+=1)
+     {
+        for(let j = i + 1 ; j < trips.length ; j++)
+        {
+
+            if(trips[i].price > trips[j].price)
+            {
+                let temp = trips[i];it 
+                trips[i] = trips[j];
+                trips[j] = temp;
+                
+            }
+        }
+     }
+
+     console.log(colors.cyan + colors.bold + "   ID    |   Departure  |  Destination    |  DepartureTime  |  ArrivalTime  |  Price   |  AvailableSeats" + colors.reset);
+    console.log(colors.cyan + colors.bold + "=========|==============|=================|=================|===============|==========|=================" + colors.reset)
+    
+    
+    for(const trip of trips){
+        
+        const { id, departure,
+            destination,
+            departureTime, arrivalTime,
+            price, availableSeats } = trip;
+            
+            
+            
+            console.log(`${id.toString().padEnd(10, " ")}${departure.padEnd(18, " ")}${destination.padEnd(16, " ")}${departureTime.padEnd(18, " ")}${arrivalTime.padEnd(8, " ")}${price.toString().padStart(10, " ")}${availableSeats.toString().padStart(15, " ")} `);
+            console.log(colors.cyan + colors.bold + "_________|______________|_________________|_________________|_______________|__________|_________________" + colors.reset)
+        }
+        
+        
 
 
+     
 
+
+}
 
 export {
     promtInput,
@@ -272,4 +306,5 @@ export {
     AficherLesTicket,
     AnullerUnTicket,
     RechercherUnTicket,
+    FiltrerLesTrajects
 }
